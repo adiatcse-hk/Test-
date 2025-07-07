@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Info Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-box {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .form-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-box">
+    <h2>Contact Form</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Name / Business" required>
+      <input type="text" id="phone" placeholder="Phone Number" required>
+      <textarea id="location" placeholder="Location / Description" rows="4" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyXqMHSZqSrQGnhC8k_52y9cA5sab7dFj1Iv5cuXB9sVQ4E5qylRomTTE6Hai2N_-W6/exec"; // Replace with your Apps Script URL
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        location: document.getElementById('location').value
+      };
+
+      fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(data)
+      })
+      .then(response => {
+        alert("Submitted successfully!");
+        form.reset();
+      })
+      .catch(error => {
+        alert("Error: " + error.message);
+      });
+    });
+  </script>
+
+</body>
+</html>
+nt-semibold" href="#marketplace">
+     Marketplace
+    </a>
+    <a class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 font-semibold" href="#farmers">
+     Farmers
+    </a>
+    <a class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 font-semibold" href="#recipes">
+     Recipes
+    </a>
+    <a class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 font-semibold" href="#about">
+     About
+    </a>
+    <a class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-700 font-semibold" href="#contact">
+     Contact
+    </a>
+   </nav>
+  </header>
+  <!-- Hero Section -->
+  <section class="relative bg-green-50">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col-reverse md:flex-row items-center md:items-start gap-12">
+    <div class="max-w-xl text-center md:text-left">
+     <h1 class="text-4xl sm:text-5xl font-extrabold text-green-800 leading-tight">
+      Fresh Local Produce, Delivered to Your Doorstep
+     </h1>
+     <p class="mt-6 text-lg text-green-700">
+      Connect directly with local farmers and enjoy the freshest fruits, vegetables, and artisanal goods.
+     </p>
+     <div class="mt-8 flex justify-center md:justify-start space-x-4">
+      <a class="inline-block bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition" href="#marketplace">
+       Shop Now
+      </a>
+      <a class="inline-block border-2 border-green-700 text-green-700 hover:bg-green-700 hover:text-white font-semibold px-6 py-3 rounded-lg transition" href="#farmers">
+       Meet Farmers
+      </a>
+     </div>
+    </div>
+    <div class="w-full max-w-lg">
+     <img alt="Fresh fruits and vegetables in a wooden crate on a farmers market table with greenery background" class="rounded-lg shadow-lg mx-auto" height="400" src="https://storage.googleapis.com/a1aa/image/2971db3f-5300-4cf4-aa2c-23bf96005f7f.jpg" width="600"/>
+    </div>
+   </div>
+  </section>
+  <!-- Marketplace Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="marketplace">
+   <h2 class="text-3xl font-extrabold text-green-800 mb-8 text-center">
+    Marketplace
+   </h2>
+   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Organic red tomatoes in a wooden basket with green leaves on a rustic wooden table" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/1a852050-1770-420f-9230-8f50da4f674c.jpg" width="400"/>
+     <div class="p-4">
+      <h3 class="text-xl font-semibold text-green-700">
+       Organic Tomatoes
+      </h3>
+      <p class="mt-2 text-gray-600">
+       Freshly picked, juicy and ripe organic tomatoes from local farms.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-800 font-bold text-lg">
+        $3.99 / lb
+       </span>
+       <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md font-semibold transition">
+        Add to Cart
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Fresh orange carrots with green tops in a bunch on a wooden table" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/d0e870c4-af96-4258-4619-6bbd57545c83.jpg" width="400"/>
+     <div class="p-4">
+      <h3 class="text-xl font-semibold text-green-700">
+       Fresh Carrots
+      </h3>
+      <p class="mt-2 text-gray-600">
+       Crunchy and sweet carrots, perfect for snacking or cooking.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-800 font-bold text-lg">
+        $2.49 / lb
+       </span>
+       <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md font-semibold transition">
+        Add to Cart
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Fresh golden honey in glass jars with wooden dip stick and wildflowers on a rustic table" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/5b081168-1e11-4e32-ca39-f0f3fe01a90d.jpg" width="400"/>
+     <div class="p-4">
+      <h3 class="text-xl font-semibold text-green-700">
+       Raw Honey
+      </h3>
+      <p class="mt-2 text-gray-600">
+       Pure, raw honey harvested from local beekeepers.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-800 font-bold text-lg">
+        $12.00 / jar
+       </span>
+       <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md font-semibold transition">
+        Add to Cart
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Fresh green lettuce heads growing in a field with sunlight shining through leaves" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/3731d007-c36a-4b78-14fb-071a7021d64d.jpg" width="400"/>
+     <div class="p-4">
+      <h3 class="text-xl font-semibold text-green-700">
+       Green Lettuce
+      </h3>
+      <p class="mt-2 text-gray-600">
+       Crisp and fresh green lettuce, perfect for salads and sandwiches.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-800 font-bold text-lg">
+        $1.99 / head
+       </span>
+       <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md font-semibold transition">
+        Add to Cart
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Fresh ripe blueberries in a wooden basket with green leaves on a rustic table" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/579ff133-caf0-45d6-6611-17ba48a0e5d2.jpg" width="400"/>
+     <div class="p-4">
+      <h3 class="text-xl font-semibold text-green-700">
+       Blueberries
+      </h3>
+      <p class="mt-2 text-gray-600">
+       Sweet and juicy blueberries, perfect for snacking or baking.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-800 font-bold text-lg">
+        $4.50 / pint
+       </span>
+       <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md font-semibold transition">
+        Add to Cart
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Fresh brown farm eggs in a carton with straw and wooden background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/e99af566-1e1c-4b61-1de9-39ceda2f957d.jpg" width="400"/>
+     <div class="p-4">
+      <h3 class="text-xl font-semibold text-green-700">
+       Farm Fresh Eggs
+      </h3>
+      <p class="mt-2 text-gray-600">
+       Free-range eggs collected daily from local farms.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-800 font-bold text-lg">
+        $5.00 / dozen
+       </span>
+       <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md font-semibold transition">
+        Add to Cart
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Fresh artisan bread loaf on wooden board with flour dust and rustic background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/c22dee5c-161f-4d81-fc55-eabc90e799c7.jpg" width="400"/>
+     <div class="p-4">
+      <h3 class="text-xl font-semibold text-green-700">
+       Artisan Bread
+      </h3>
+      <p class="mt-2 text-gray-600">
+       Handcrafted bread baked fresh daily with organic ingredients.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-800 font-bold text-lg">
+        $6.50 / loaf
+       </span>
+       <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md font-semibold transition">
+        Add to Cart
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Fresh green herbs in small pots on wooden table with sunlight shining through" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/53178a22-a0ac-4e4e-377d-7a821e170bac.jpg" width="400"/>
+     <div class="p-4">
+      <h3 class="text-xl font-semibold text-green-700">
+       Fresh Herbs
+      </h3>
+      <p class="mt-2 text-gray-600">
+       Basil, parsley, cilantro, and more grown locally and freshly harvested.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-800 font-bold text-lg">
+        $3.00 / pot
+       </span>
+       <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md font-semibold transition">
+        Add to Cart
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Fresh red and green apples in a wooden crate with green leaves on a rustic table" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/c516a903-c0b2-4053-f502-28820f5b065b.jpg" width="400"/>
+     <div class="p-4">
+      <h3 class="text-xl font-semibold text-green-700">
+       Fresh Apples
+      </h3>
+      <p class="mt-2 text-gray-600">
+       Crisp and sweet apples freshly picked from local orchards.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-800 font-bold text-lg">
+        $3.75 / lb
+       </span>
+       <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md font-semibold transition">
+        Add to Cart
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Fresh yellow corn cobs with green husks on a wooden table" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/2f74cda5-0e90-4759-718b-900938292ae5.jpg" width="400"/>
+     <div class="p-4">
+      <h3 class="text-xl font-semibold text-green-700">
+       Sweet Corn
+      </h3>
+      <p class="mt-2 text-gray-600">
+       Juicy and sweet corn cobs freshly harvested from local farms.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-800 font-bold text-lg">
+        $2.99 / ear
+       </span>
+       <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md font-semibold transition">
+        Add to Cart
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Fresh brown potatoes in a burlap sack with soil and green leaves around" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/a4275ff0-1e55-4773-930c-e496d8691b14.jpg" width="400"/>
+     <div class="p-4">
+      <h3 class="text-xl font-semibold text-green-700">
+       Potatoes
+      </h3>
+      <p class="mt-2 text-gray-600">
+       Starchy and versatile potatoes freshly dug from local fields.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-800 font-bold text-lg">
+        $1.50 / lb
+       </span>
+       <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md font-semibold transition">
+        Add to Cart
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Fresh ripe strawberries in a wooden basket with green leaves on a rustic table" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/b1c9777d-04f1-49c5-ec4e-9a4ad85ad5bc.jpg" width="400"/>
+     <div class="p-4">
+      <h3 class="text-xl font-semibold text-green-700">
+       Strawberries
+      </h3>
+      <p class="mt-2 text-gray-600">
+       Sweet and juicy strawberries freshly picked from local farms.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-800 font-bold text-lg">
+        $5.00 / pint
+       </span>
+       <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md font-semibold transition">
+        Add to Cart
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Fresh green spinach leaves in a bowl with wooden background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/ec72dfdf-ec94-45f0-9eac-9e7295e75b3e.jpg" width="400"/>
+     <div class="p-4">
+      <h3 class="text-xl font-semibold text-green-700">
+       Spinach
+      </h3>
+      <p class="mt-2 text-gray-600">
+       Tender and nutrient-rich spinach leaves, perfect for salads and cooking.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-800 font-bold text-lg">
+        $2.75 / bunch
+       </span>
+       <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md font-semibold transition">
+        Add to Cart
+       </button>
+      </div>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+     <img alt="Fresh local cheese blocks on wooden board with grapes and nuts" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/a08eeca7-ff0d-47e6-faf9-5a8b5bc59a22.jpg" width="400"/>
+     <div class="p-4">
+      <h3 class="text-xl font-semibold text-green-700">
+       Local Cheese
+      </h3>
+      <p class="mt-2 text-gray-600">
+       Handcrafted cheese made from local dairy farms.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+       <span class="text-green-800 font-bold text-lg">
+        $8.00 / pack
+       </span>
+       <button class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md font-semibold transition">
+        Add to Cart
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Farmers Section -->
+  <section class="bg-green-100 py-16" id="farmers">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-extrabold text-green-900 mb-12 text-center">
+     Meet Our Farmers
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+     <div class="bg-white rounded-lg shadow p-6 flex flex-col items-center text-center">
+      <img alt="Portrait of farmer John smiling in a field wearing a straw hat and plaid shirt" class="rounded-full w-36 h-36 object-cover mb-4" height="150" src="https://storage.googleapis.com/a1aa/image/2f6f5b1a-78ee-4cca-e823-566c46cf2d02.jpg" width="150"/>
+      <h3 class="text-xl font-semibold text-green-800">
+       John Miller
+      </h3>
+      <p class="mt-2 text-gray-700">
+       Organic vegetable farmer with 20 years of experience in sustainable farming.
+      </p>
+      <div class="mt-4 flex space-x-4 text-green-700 text-lg">
+       <a aria-label="John Miller Facebook" class="hover:text-green-900" href="#">
+        <i class="fab fa-facebook-square">
+        </i>
+       </a>
+       <a aria-label="John Miller Instagram" class="hover:text-green-900" href="#">
+        <i class="fab fa-instagram">
+        </i>
+       </a>
+       <a aria-label="John Miller Twitter" class="hover:text-green-900" href="#">
+        <i class="fab fa-twitter-square">
+        </i>
+       </a>
+      </div>
+     </div>
+     <div class="bg-white rounded-lg shadow p-6 flex flex-col items-center text-center">
+      <img alt="Portrait of farmer Maria holding fresh herbs in a greenhouse wearing a green apron" class="rounded-full w-36 h-36 object-cover mb-4" height="150" src="https://storage.googleapis.com/a1aa/image/2dea277e-a26b-48c6-91c7-40f6cd84c6db.jpg" width="150"/>
+      <h3 class="text-xl font-semibold text-green-800">
+       Maria Lopez
+      </h3>
+      <p class="mt-2 text-gray-700">
+       Herb and flower grower specializing in organic and pesticide-free plants.
+      </p>
+      <div class="mt-4 flex space-x-4 text-green-700 text-lg">
+       <a aria-label="Maria Lopez Facebook" class="hover:text-green-900" href="#">
+        <i class="fab fa-facebook-square">
+        </i>
+       </a>
+       <a aria-label="Maria Lopez Instagram" class="hover:text-green-900" href="#">
+        <i class="fab fa-instagram">
+        </i>
+       </a>
+       <a aria-label="Maria Lopez Twitter" class="hover:text-green-900" href="#">
+        <i class="fab fa-twitter-square">
+        </i>
+       </a>
+      </div>
+     </div>
+     <div class="bg-white rounded-lg shadow p-6 flex flex-col items-center text-center">
+      <img alt="Portrait of farmer David standing next to beehives in sunlight wearing a protective beekeeper suit" class="rounded-full w-36 h-36 object-cover mb-4" height="150" src="https://storage.googleapis.com/a1aa/image/11686a05-9c2a-4b4c-af8e-5acca3687065.jpg" width="150"/>
+      <h3 class="text-xl font-semibold text-green-800">
+       David Kim
+      </h3>
+      <p class="mt-2 text-gray-700">
+       Local beekeeper producing raw honey and beeswax products with care.
+      </p>
+      <div class="mt-4 flex space-x-4 text-green-700 text-lg">
+       <a aria-label="David Kim Facebook" class="hover:text-green-900" href="#">
+        <i class="fab fa-facebook-square">
+        </i>
+       </a>
+       <a aria-label="David Kim Instagram" class="hover:text-green-900" href="#">
+        <i class="fab fa-instagram">
+        </i>
+       </a>
+       <a aria-label="David Kim Twitter" class="hover:text-green-900" href="#">
+        <i class="fab fa-twitter-square">
+        </i>
+       </a>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Recipes Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="recipes">
+   <h2 class="text-3xl font-extrabold text-green-800 mb-12 text-center">
+    Delicious Recipes
+   </h2>
+   <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+    <article class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col">
+     <img alt="Fresh tomato and basil pasta in a white bowl topped with parmesan cheese and fresh basil leaves" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/8f336e9f-a9d3-4682-2627-917ff6f9c19c.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h3 class="text-xl font-semibold text-green-700 mb-2">
+       Tomato Basil Pasta
+      </h3>
+      <p class="text-gray-700 flex-grow">
+       A simple and fresh pasta recipe using ripe tomatoes and fragrant basil from the market.
+      </p>
+      <a class="mt-4 inline-block text-green-700 font-semibold hover:underline" href="#">
+       View Recipe →
+      </a>
+     </div>
+    </article>
+    <article class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col">
+     <img alt="Fresh carrot ginger soup in a white bowl garnished with herbs and a wooden spoon on the side" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/7410bdf9-64ee-488c-6a9c-2c243757537d.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h3 class="text-xl font-semibold text-green-700 mb-2">
+       Carrot Ginger Soup
+      </h3>
+      <p class="text-gray-700 flex-grow">
+       Warm and comforting soup made with fresh carrots and a hint of ginger.
+      </p>
+      <a class="mt-4 inline-block text-green-700 font-semibold hover:underline" href="#">
+       View Recipe →
+      </a>
+     </div>
+    </article>
+    <article class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden flex flex-col">
+     <img alt="Fresh blueberry smoothie in a glass garnished with mint leaves and a straw on a wooden table" class="w-full h-48 object-cover" height="400" src="https://storage.googleapis.com/a1aa/image/152ecc8e-983e-4152-b8f8-af8cd39b61e6.jpg" width="600"/>
+     <div class="p-6 flex flex-col flex-grow">
+      <h3 class="text-xl font-semibold text-green-700 mb-2">
+       Blueberry Smoothie
+      </h3>
+      <p class="text-gray-700 flex-grow">
+       Refreshing and healthy smoothie made with fresh blueberries and yogurt.
+      </p>
+      <a class="mt-4 inline-block text-green-700 font-semibold hover:underline" href="#">
+       View Recipe →
+      </a>
+     </div>
+    </article>
+   </div>
+  </section>
+  <!-- About Section -->
+  <section class="bg-green-50 py-16" id="about">
+   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl font-extrabold text-green-800 mb-6">
+     About Harvest Hub
+    </h2>
+    <p class="text-lg text-green-700 max-w-3xl mx-auto">
+     Harvest Hub is a community-driven marketplace connecting you directly with local farmers and producers. We believe in fresh, sustainable, and transparent food sourcing. Our mission is to support local agriculture and provide you with the best quality produce and artisanal goods.
+    </p>
+    <img alt="Farmers working together in a field with a warm sunset background, showing teamwork and community spirit" class="mt-10 rounded-lg shadow-lg mx-auto" height="400" src="https://storage.googleapis.com/a1aa/image/e521900d-6cf2-4d54-293a-cb464f238944.jpg" width="800"/>
+   </div>
+  </section>
+  <!-- Contact Section -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="contact">
+   <h2 class="text-3xl font-extrabold text-green-800 mb-8 text-center">
+    Get in Touch
+   </h2>
+   <form action="#" class="bg-white rounded-lg shadow p-8 max-w-xl mx-auto" method="POST">
+    <div class="mb-6">
+     <label class="block text-green-700 font-semibold mb-2" for="name">
+      Name
+     </label>
+     <input class="w-full border border-green-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-transparent" id="name" name="name" placeholder="Your full name" required="" type="text"/>
+    </div>
+    <div class="mb-6">
+     <label class="block text-green-700 font-semibold mb-2" for="email">
+      Email
+     </label>
+     <input class="w-full border border-green-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-transparent" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+    </div>
+    <div class="mb-6">
+     <label class="block text-green-700 font-semibold mb-2" for="message">
+      Message
+     </label>
+     <textarea class="w-full border border-green-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-transparent" id="message" name="message" placeholder="Write your message here..." required="" rows="5"></textarea>
+    </div>
+    <button class="w-full bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition" type="submit">
+     Send Message
+    </button>
+   </form>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-green-900 text-green-200 py-10">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+    <div class="flex items-center space-x-3">
+     <img alt="Harvest Hub logo, stylized HH letters with green leaf" class="h-10 w-10" height="40" src="https://storage.googleapis.com/a1aa/image/fe5dff4e-b5f5-4510-c0cb-d761bf3027fb.jpg" width="40"/>
+     <span class="font-bold text-xl">
+      Harvest Hub
+     </span>
+    </div>
+    <p class="text-sm">
+     © 2024 Harvest Hub. All rights reserved.
+    </p>
+    <div class="flex space-x-6 text-green-300 text-xl">
+     <a aria-label="Facebook" class="hover:text-white" href="#">
+      <i class="fab fa-facebook-square">
+      </i>
+     </a>
+     <a aria-label="Instagram" class="hover:text-white" href="#">
+      <i class="fab fa-instagram">
+      </i>
+     </a>
+     <a aria-label="Twitter" class="hover:text-white" href="#">
+      <i class="fab fa-twitter-square">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+  <script>
+   const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+ </body>
+</html>
